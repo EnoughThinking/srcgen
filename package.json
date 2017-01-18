@@ -1,6 +1,6 @@
 {
   "name": "source-generator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Generate any source for any language and any frameworks from templates with Node JS + Handlebars",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "admin@site15.ru",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^0.22.0",
     "fs-extra": "^2.0.0",
     "handlebars": "^4.0.6",
     "mkdirp": "^0.5.1",
