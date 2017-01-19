@@ -12,6 +12,7 @@
     "cheerio": "^0.22.0",
     "fs-extra": "^2.0.0",
     "handlebars": "^4.0.6",
+    "inquirer": "^2.0.0",
     "mkdirp": "^0.5.1",
     "recursive-readdir-synchronous": "0.0.3",
     "replace-ext": "^1.0.0"

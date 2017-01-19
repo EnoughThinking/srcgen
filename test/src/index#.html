@@ -1,12 +1,17 @@
 <html2>
     <prompt name="HOI1">hoi</prompt>
-    <prompt name="HOI2" callback="javascript:function callback(){console.error('ss');}">hoi2</prompt>
+    <prompt name="HOI2" type="list" choices="javascript:[
+      'Use the stick',
+      'Grab a large rock',
+      'Try and make a run for it',
+      'Attack the wolf unarmed'
+    ]">Grab a large rock</prompt>
 <table>
-    {{#each project.pages}}
+    [{#each project.pages}]</hb>
     <tr>
-        <td>{{this.name}}</td>
-        <td>{{this.title}}</td>
+        <td>[{this.name}]</td>
+        <td>[{this.title}]</td>
     </tr>
-    {{/each}}
+    [{/each}]</hb>
 </table>
 </html>

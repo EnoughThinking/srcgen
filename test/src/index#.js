@@ -1,8 +1,7 @@
 var generator = require('../../index');
 var path = require('path');
 console.log(
-    /*generator.extractor.scanFile(path.resolve(__dirname, './index#.html'))*/
-    generator.extractor.scan(path.resolve(__dirname))
+    /*generator.extractor.scan(path.resolve(__dirname, './index#.html'))*/
     /*generator.builder.folder.all(
         path.resolve(__dirname),
         path.resolve(__dirname, '../dest'),
@@ -10,3 +9,4 @@ console.log(
         [__filename]
     )*/
 );
+generator.extractor.folder.scan(path.resolve(__dirname));
