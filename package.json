@@ -4,7 +4,7 @@
   "description": "Generate any source for any language and any frameworks from templates with Node JS + Handlebars",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "author": "admin@site15.ru",
   "license": "MIT",
@@ -13,8 +13,13 @@
     "fs-extra": "^2.0.0",
     "handlebars": "^4.0.6",
     "inquirer": "^2.0.0",
+    "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "recursive-readdir-synchronous": "0.0.3",
     "replace-ext": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }

@@ -1,0 +1,1 @@
+var model={<%for (var key in model) {%><%=key%>:<%=JSON.stringify(model[key])%>,<%}%>};
