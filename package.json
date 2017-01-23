@@ -1,7 +1,7 @@
 {
-  "name": "source-generator",
-  "version": "0.1.0",
-  "description": "Generate any source for any language and any frameworks from templates with Node JS + Handlebars",
+  "name": "srcgen",
+  "version": "0.1.1",
+  "description": "Generate any source for any language and any frameworks from templates with Node JS + Lodash + Inquirer",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec"
