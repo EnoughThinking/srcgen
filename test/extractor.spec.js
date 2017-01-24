@@ -4,58 +4,91 @@ var should = require('chai').should(),
     path = require('path'),
     fs = require('fs'),
     inquirer = require('inquirer');
-var autosubmit = function (ui) {
-    ui.process.subscribe(function () {
-        // Use setTimeout because async properties on the following question object will still
-        // be processed when we receive the subscribe event.
-        setTimeout(function () {
-            ui.rl.emit('line');
-        }, 5);
-    });
-    ui.rl.emit('line');
-};
 var result, prompts;
 describe(`srcgen.extractor.scan: extract prompts from file "fixtures/prompt-test.html"`, function () {
-    beforeEach(function () {
-        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'));
-        prompts = [];
-        for (var key in result.variables) {
-            var variables = generator.extractor.evalJsInObjectItemValues(result.variables[key]);
-            for (var index in variables) {
-                prompts.push(variables[index]);
-            }
-        }
-    });
     it(`key "variables" should be exists`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
         expect(result).to.have.property('variables');
     });
     it(`key "STRVALUE" should be exists in variables`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
         expect(result.variables).to.have.property('STRVALUE');
     });
     it(`key "LISTVALUE" should be exists in variables`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
         expect(result.variables).to.have.property('LISTVALUE');
     });
-    it(`should take a text prompt`, function () {
-        var promise = inquirer.prompt([prompts[0]]);
-        promise.ui.rl.emit('line', 'demo');
+    it(`check exists all prompts used in file`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
+        expect(prompts).to.have.property('STRVALUE');
+        expect(prompts).to.have.property('LISTVALUE');
+        prompts.STRVALUE.length.should.equal(3);
+        prompts.LISTVALUE.length.should.equal(1);
+    });
+    it(`should take a text prompt (primary)`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
+        var promise = inquirer.prompt([prompts.STRVALUE[0]]);
+        promise.ui.rl.emit('line');
         return promise.then(function (answers) {
-            answers.STRVALUE.should.equal('demo');
+            answers.STRVALUE.should.equal('test2');
         });
     });
     it(`should take a text prompt with message`, function () {
-        var promise = inquirer.prompt([prompts[1]]);
-        promise.ui.rl.emit('line', 'demo new');
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
+        var promise = inquirer.prompt([prompts.STRVALUE[1]]);
+        promise.ui.rl.emit('line');
         return promise.then(function (answers) {
-            answers.STRVALUE.should.equal('demo new');
+            answers.STRVALUE.should.equal('test3');
+        });
+    });
+    it(`should take a text prompt with message (last smalled)`, function () {
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
+        var promise = inquirer.prompt([prompts.STRVALUE[2]]);
+        promise.ui.rl.emit('line');
+        return promise.then(function (answers) {
+            answers.STRVALUE.should.equal('test1');
         });
     });
     it(`should take a list prompt`, function () {
-        var promise = inquirer.prompt([prompts[2]]);
-        promise.ui.rl.emit('keypress', null, { name: 'down' });
-        promise.ui.rl.emit('keypress', null, { name: 'down' });
-        promise.ui.rl.emit('line')
+        result = generator.extractor.scan(path.resolve(__dirname, './fixtures/prompt-test.html'), true);
+        prompts = result.variables;
+        var promise = inquirer.prompt([prompts.LISTVALUE[0]]);
+        promise.ui.rl.input.emit('keypress', null, { name: 'down' });
+        promise.ui.rl.input.emit('keypress', null, { name: 'down' });
+        promise.ui.rl.emit('line');
         return promise.then(function (answers) {
-            answers.LISTVALUE.should.equal('Grab a large rock');
+            answers.LISTVALUE.should.equal('Attack the wolf unarmed');
+        });
+    });
+});
+describe(`srcgen.extractor.folder.scan: extract prompts from folder "fixtures"`, function () {
+    it(`key "variables" should be exists`, function () {
+        result = generator.extractor.folder.scan(path.resolve(__dirname, './fixtures/src'), true);
+        prompts = result.variables;
+        expect(result).to.have.property('variables');
+    });
+    it(`key "STRVALUE" should be exists in variables`, function () {
+        result = generator.extractor.folder.scan(path.resolve(__dirname, './fixtures/src'), true);
+        prompts = result.variables;
+        expect(result.variables).to.have.property('STRVALUE');
+    });
+    it(`should take a text prompt for many prompts with one name`, function () {
+        result = generator.extractor.folder.scan(path.resolve(__dirname, './fixtures/src'), true);
+        prompts = result.variables;
+        var promise = inquirer.prompt([prompts.STRVALUE[0]]);
+        promise.ui.rl.emit('line');
+        return promise.then(function (answers) {
+            prompts.STRVALUE[0].updater(answers.STRVALUE, prompts.STRVALUE[0]).should.equal('test1.2');
+            prompts.STRVALUE[1].updater(answers.STRVALUE, prompts.STRVALUE[1], prompts.STRVALUE[0]).should.equal('Primary prefix test1.2 test2.2 Secondary prefix');
+            prompts.STRVALUE[2].updater(answers.STRVALUE, prompts.STRVALUE[2], prompts.STRVALUE[0]).should.equal('test1.2');
+            prompts.STRVALUE[3].updater(answers.STRVALUE, prompts.STRVALUE[3], prompts.STRVALUE[0]).should.equal('test1.2');
         });
     });
 });

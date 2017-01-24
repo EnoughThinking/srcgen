@@ -1,11 +1,16 @@
 var generator = require('../../index');
 var path = require('path');
+var result=
+generator.extractor.scan(path.resolve(__dirname, './index#.html'));
+
 console.log(
+    /*
     generator.builder.template(
         path.resolve(__dirname, './frontend/index#.html'),
         { project: { pages: [{ name: 1, title: 2 }, { name: 3, title: 4 }] } }
-    )
-/*generator.extractor.scan(path.resolve(__dirname, './index#.html'))*/
+    )*/
+    1//result
+/*generator.extractor.scan(path.resolve(__dirname, './index#.html'))
 /*generator.builder.folder.all(
         path.resolve(__dirname),
         path.resolve(__dirname, '../dest'),
