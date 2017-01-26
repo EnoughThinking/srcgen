@@ -18,6 +18,8 @@ var result =
                 [__filename]
             )*/
     );
-generator.extractor.folder.prompt(path.resolve(__dirname, '../fixtures/src')).then(function (data) {
-    console.log(data.data, 1, data.variables.STRVALUE[1]);
+generator.extractor.folder.prompt(path.resolve(__dirname, '../fixtures/src'), { STRVALUE2: "1" }).then(function (data) {
+    console.log('hoi', data);
+}, function (error) {
+    console.log(error);
 });

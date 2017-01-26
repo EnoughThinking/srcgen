@@ -68,7 +68,7 @@ describe(`srcgen.extractor.scan: extract prompts from file "fixtures/prompt-test
         });
     });
 });
-describe(`srcgen.extractor.folder.scan: extract prompts from folder "fixtures"`, function () {
+describe(`srcgen.extractor.folder.scan: extract prompts from folder "fixtures/src"`, function () {
     it(`key "variables" should be exists`, function () {
         result = generator.extractor.folder.scan(path.resolve(__dirname, './fixtures/src'), true);
         prompts = result.variables;

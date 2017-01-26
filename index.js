@@ -1,11 +1,22 @@
 'use strict';
-
 exports.__esModule = true;
-var index = {
-    utils: require('./lib/utils'),
-    builder: require('./lib/builder'),
-    extractor: require('./lib/extractor'),
-    between: require('./lib/between')
+
+var utils = require('./lib/utils');
+var builder = require('./lib/builder');
+var extractor = require('./lib/extractor');
+var between = require('./lib/between');
+
+var Generator = function (path) {
+    if (path !== undefined) {
+
+    }
 };
-exports['default'] = index;
+
+Generator.prototype.utils = utils;
+Generator.prototype.builder = builder;
+Generator.prototype.extractor = extractor;
+Generator.prototype.between = between;
+
+exports['default'] = new Generator();
+exports['Generator'] = Generator;
 module.exports = exports['default'];

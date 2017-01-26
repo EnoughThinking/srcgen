@@ -81,6 +81,7 @@ describe(`srcgen.builder.folder.all: run all script and transform templates in f
         result.should.equal(false);
     });
     it(`files should be exists "fixtures/dest/model.js" and "fixtures/dest/Post.py"`, function () {
+        generator.builder.setReplacers([{ from: 'replace me', to: 'replaced text' }]);
         generator.builder.folder.all(
             path.resolve(__dirname, './fixtures/src'),
             path.resolve(__dirname, './fixtures/dest'),
@@ -91,5 +92,20 @@ describe(`srcgen.builder.folder.all: run all script and transform templates in f
         result.should.equal(true);
         result = generator.utils.exists(path.resolve(__dirname, './fixtures/dest/Post.py'));
         result.should.equal(true);
+    });
+    it(`files should be exists "fixtures/dest/model.js" and "fixtures/dest/Post.py" with words to replace `, function () {
+        generator.builder.setReplacers([{ from: 'replace me', to: 'replaced text' }]);
+        generator.builder.folder.all(
+            path.resolve(__dirname, './fixtures/src'),
+            path.resolve(__dirname, './fixtures/dest'),
+            { ModelName: 'Post', model: { key1: 'val1', key2: 'val2' } }
+        );
+        var result;
+        result = generator.utils.exists(path.resolve(__dirname, './fixtures/dest/model.js'));
+        result.should.equal(true);
+        result = generator.utils.exists(path.resolve(__dirname, './fixtures/dest/Post.py'));
+        result.should.equal(true);
+        result = generator.utils.load(path.resolve(__dirname, './fixtures/dest/Post.py'));
+        (result.indexOf('replaced text') != -1).should.equal(true);
     });
 });
