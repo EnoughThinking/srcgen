@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 '''
-replace me
+%replace me%
 '''
 class <%=ModelName%>(models.Model):
     title = models.TextField(max_length=512)

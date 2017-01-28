@@ -1,0 +1,9 @@
+{
+    "STRVALUE2": "1",
+    "ModelName": "Post",
+    "model": {
+        "key1": "val1",
+        "key2": "val2"
+    },
+    "replaceme": "replacedtext"
+}

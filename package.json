@@ -1,22 +1,46 @@
 {
   "name": "srcgen",
-  "version": "0.1.1",
-  "description": "Generate any source for any language and any frameworks from templates with Node JS + Lodash + Inquirer",
+  "version": "0.1.2",
+  "description": "Generate any source for any language and any frameworks from templates with Node JS",
+  "keywords": [
+    "CLI",
+    "Source",
+    "Generator",
+    "Module",
+    "Template",
+    "Scaffolding"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec"
   },
-  "author": "admin@site15.ru",
+  "author": {
+    "email": "admin@site15.ru",
+    "name": "EndyKaufman",
+    "url": "http://site15.ru/"
+  },
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EndyKaufman/srcgen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EndyKaufman/srcgen/issues"
+  },
+  "homepage": "https://github.com/EndyKaufman/srcgen",
   "license": "MIT",
   "bin": {
-    "gensrc": "./index.js"
+    "srcgen": "./bin/srcgen.js"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
     "cheerio": "^0.22.0",
+    "clear": "0.0.1",
     "commander": "^2.9.0",
+    "figlet": "^1.2.0",
     "fs-extra": "^2.0.0",
     "handlebars": "^4.0.6",
-    "inquirer": "^2.0.0",
+    "inquirer": "^3.0.1",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "object-path": "^0.11.3",

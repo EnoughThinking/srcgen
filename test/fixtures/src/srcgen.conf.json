@@ -1,0 +1,14 @@
+{
+    "name": "test-template",
+    "version": "0.0.1",
+    "description": "Demo test template",
+    "data": {
+        "STRVALUE2": "1",
+        "ModelName": "Post",
+        "model": {
+            "key1": "val1",
+            "key2": "val2"
+        },
+        "replaceme": "replacedtext"
+    }
+}

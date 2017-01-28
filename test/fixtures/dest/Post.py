@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 '''
-replaced text
+%replaced text%
 '''
 class Post(models.Model):
     title = models.TextField(max_length=512)
