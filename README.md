@@ -25,6 +25,8 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.1.3 
+    * Fix error when templates not found
 * 0.1.2 
     * Add cli mode support
 * 0.1.0 
