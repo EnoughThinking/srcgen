@@ -7,7 +7,7 @@ var figlet = require('figlet');
 var program = require('commander');
 
 program
-    .version('0.2.0')
+    .version('0.2.1')
     .parse(process.argv);
 
 if (program.args.length === 0) {
