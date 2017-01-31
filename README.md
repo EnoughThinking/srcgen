@@ -25,6 +25,9 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.2.0
+    * Change method for run script with ext "#.js"
+    * Remove from all dynamic javascript extracted from templates and "#.js" files
 * 0.1.5
     * Add support show version info, sample
     ```

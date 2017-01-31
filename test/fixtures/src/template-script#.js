@@ -1,13 +1,10 @@
-var generator = require('../../../index');
-var path = require('path');
+var generator = require(path.resolve(__dirname, '../../../index'));
 /**
  * "data" include from parent script
  */
-data.model.key3='val3';
+model.key3 = 'val3';
 var content = generator.builder.template(
     path.resolve(__dirname, './template-model!.js'),
-    data
+    { model: model }
 );
 generator.utils.save(path.resolve(__destdir, './model.js'), content);
-exports['default'] = content;
-module.exports = exports['default'];
