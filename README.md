@@ -25,6 +25,9 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.1.4 
+    * Change run javascript code for prompt attributes
+    * Include node libs inquirer, path, utils, objectPath when run javascript for prompt attributes
 * 0.1.3 
     * Fix error when templates not found
 * 0.1.2 

@@ -1,5 +1,5 @@
 {
-    "name": <prompt name="name" message="Template name" updater="javascript:JSON.stringify(__value)">Name</prompt>,
+    "name": <prompt name="name" message="Template name" updater="javascript:return JSON.stringify(__value)">Name</prompt>,
     "version": "0.0.1",
-    "description": <prompt name="description" message="Template description" updater="javascript:JSON.stringify(__value)">Description</prompt>
+    "description": <prompt name="description" message="Template description" updater="javascript:return JSON.stringify(__value)">Description</prompt>
 }
