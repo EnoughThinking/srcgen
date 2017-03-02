@@ -25,6 +25,23 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.2.2
+    * Add functionalities for fast run generate template from command line, for view it run
+    ```
+    $ srcgen --help
+    >
+    >  Usage: srcgen [options]
+    >  Options:
+    >      -h, --help                          output usage information
+    >      -V, --version                       output the version number
+    >      -s, --show-templates                Show exists templates
+    >      -t, --build-template [value]        Build from template
+    >      -f, --input-data-file [value]       File name with input data
+    >      -i, --input-data [value]            Input data
+    >      -d, --dest-path [value]             Destination path
+    >      -ic, --ignore-confirm               Hide confirm for run template
+    >      -s, --save-input-data-path [value]  Path to save all answers for reuse it
+    ```
 * 0.2.1
     * Include node libs console to all javascript extracted from templates and "#.js" files
 * 0.2.0
@@ -33,7 +50,7 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
 * 0.1.5
     * Add support show version info, sample
     ```
-    $srcgen -V
+    $ srcgen -V
     > 0.1.5
     ```
 * 0.1.4 

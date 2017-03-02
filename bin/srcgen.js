@@ -8,9 +8,17 @@ var program = require('commander');
 
 program
     .version('0.2.1')
+    .option('-s, --show-templates', 'Show exists templates')
+    .option('-t, --build-template [value]', 'Build from template')
+    .option('-f, --input-data-file [value]', 'File name with input data')
+    .option('-i, --input-data [value]', 'Input data')
+    .option('-d, --dest-path [value]', 'Destination path')
+    .option('-ic, --ignore-confirm', 'Hide confirm for run template')
+    .option('-s, --save-input-data-path [value]', 'Path to save all answers for reuse it')
     .parse(process.argv);
 
-if (program.args.length === 0) {
+//if (program.args.length === 0) {
+if (program.showTemplates !== true && program.ignoreConfirm !== true) {
     clear();
     console.log(
         chalk.green(
@@ -18,5 +26,15 @@ if (program.args.length === 0) {
         )
     );
     console.log('');
-    srcgen.generator.run(path.resolve(process.cwd()));
 }
+srcgen.generator.run(
+    path.resolve(process.cwd()),
+    program.showTemplates,
+    program.buildTemplate,
+    program.inputDataFile,
+    program.inputData,
+    program.destPath,
+    program.ignoreConfirm,
+    program.saveInputDataPath
+);
+//}
