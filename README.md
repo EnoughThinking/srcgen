@@ -25,7 +25,9 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
-* 0.2.3
+* 0.2.3 - 0.2.9
+    * Fix correct save input data
+    * Fix error in check command arguments
     * Fix circular error
     * Fix error if inputDataFile = ''
 * 0.2.2

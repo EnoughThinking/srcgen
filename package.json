@@ -1,6 +1,6 @@
 {
   "name": "srcgen",
-  "version": "0.2.3",
+  "version": "0.2.9",
   "description": "Generate any source for any language and any frameworks from templates with Node JS",
   "keywords": [
     "CLI",
