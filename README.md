@@ -25,6 +25,9 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.2.3
+    * Fix circular error
+    * Fix error if inputDataFile = ''
 * 0.2.2
     * Add functionalities for fast run generate template from command line, for view it run
     ```
