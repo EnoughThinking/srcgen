@@ -7,7 +7,7 @@ var figlet = require('figlet');
 var program = require('commander');
 
 program
-    .version('0.2.11')
+    .version('0.2.12')
     .option('-l, --show-templates', 'Show exists templates')
     .option('-t, --build-template [value]', 'Build from template')
     .option('-f, --input-file [value]', 'File name with input data')
@@ -31,10 +31,10 @@ srcgen.generator.run(
     path.resolve(process.cwd()),
     program.showTemplates,
     program.buildTemplate,
-    program.inputDataFile,
+    program.inputFile,
     program.inputData,
     program.destPath,
     program.ignoreConfirm,
-    program.saveInputDataPath
+    program.saveInputFile
 );
 //}
