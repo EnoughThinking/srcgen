@@ -25,6 +25,22 @@ Make you custom templates, for scaffolding and fast build basic modules for you 
     $ srcgen    
 
 ## Release History 
+* 0.2.11
+    * Change command line commands
+    ```
+    $ srcgen --help
+    >
+    >  Usage: srcgen [options]
+    >  Options:
+    >      -h, --help                     output usage information
+    >      -V, --version                  output the version number
+    >      -l, --show-templates           Show exists templates
+    >      -t, --build-template [value]   Build from template
+    >      -f, --input-file [value]       File name with input data
+    >      -d, --dest-path [value]        Destination path
+    >      -x, --ignore-confirm           Hide confirm for run template
+    >      -s, --save-input-file [value]  Path to save all answers for reuse it
+    ```
 * 0.2.10
     * Fix error load input data from file with command line
 * 0.2.3 - 0.2.9

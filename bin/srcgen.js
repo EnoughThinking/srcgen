@@ -7,14 +7,14 @@ var figlet = require('figlet');
 var program = require('commander');
 
 program
-    .version('0.2.1')
-    .option('-s, --show-templates', 'Show exists templates')
+    .version('0.2.11')
+    .option('-l, --show-templates', 'Show exists templates')
     .option('-t, --build-template [value]', 'Build from template')
-    .option('-f, --input-data-file [value]', 'File name with input data')
-    .option('-i, --input-data [value]', 'Input data')
+    .option('-f, --input-file [value]', 'File name with input data')
+    //.option('-i, --input-data [value]', 'Input data')
     .option('-d, --dest-path [value]', 'Destination path')
-    .option('-ic, --ignore-confirm', 'Hide confirm for run template')
-    .option('-s, --save-input-data-path [value]', 'Path to save all answers for reuse it')
+    .option('-x, --ignore-confirm', 'Hide confirm for run template')
+    .option('-s, --save-input-file [value]', 'Path to save all answers for reuse it')
     .parse(process.argv);
 
 //if (program.args.length === 0) {
