@@ -1,6 +1,6 @@
 {
   "name": "srcgen",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "Generate any source for any language and any frameworks from templates with Node JS",
   "keywords": [
     "CLI",
@@ -30,7 +30,7 @@
   "homepage": "https://github.com/EndyKaufman/srcgen",
   "license": "MIT",
   "bin": {
-    "srcgen": "./bin/srcgen.js"
+    "srcgen": "bin/srcgen.js"
   },
   "dependencies": {
     "chalk": "^1.1.3",
