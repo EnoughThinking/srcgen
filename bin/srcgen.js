@@ -7,7 +7,7 @@ var figlet = require('figlet');
 var program = require('commander');
 
 program
-    .version('0.3.2')
+    .version('0.3.3')
     .option('-l, --show-templates', 'Show exists templates')
     .option('-t, --build-template [value]', 'Build from template')
     .option('-f, --input-file [value]', 'File name with input data')
